@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>&lt;3 Luminous Particle Heart</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Fullscreen Particle Canvas -->
+  <canvas id="heartCanvas"></canvas>
+
+  <!-- Ambient Cinematic Glow -->
+  <div class="ambient-vignette"></div>
+
+  <!-- Romantic Text Overlay -->
+  <div class="text-container">
+    <h1 class="romantic-text" id="romanticText" contenteditable="true" spellcheck="false" title="Click to edit text">&lt;3</h1>
+    <p class="sub-text" id="subText" contenteditable="true" spellcheck="false" title="Click to edit">My heart beats only for you</p>
+  </div>
+
+  <!-- Minimal Elegant Corner Controls -->
+  <div class="minimal-controls">
+    <button class="tool-btn" id="themeBtn" title="Switch Color Theme">
+      <span class="color-dot"></span>
+    </button>
+    <button class="tool-btn" id="soundBtn" title="Toggle Heartbeat Sound">
+      <span id="soundIcon">🔇</span>
+    </button>
+    <button class="tool-btn" id="burstBtn" title="Heart Burst Effect">
+      <span>✨</span>
+    </button>
+    <button class="tool-btn" id="fullscreenBtn" title="Fullscreen">
+      <span>⛶</span>
+    </button>
+  </div>
+
+  <!-- Touch / Interaction Hint -->
+  <div class="interaction-hint">
+    <span>Touch, drag, or click anywhere ✨</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

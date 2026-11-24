@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+:root {
+  --primary-pink: #ff2a7a;
+  --secondary-glow: #ff75a0;
+  --glow-shadow: rgba(255, 42, 122, 0.6);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #030106;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #ffffff;
+}
+
+/* Canvas takes full screen */
+#heartCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+  cursor: pointer;
+}
+
+/* Subtle cinematic vignette */
+.ambient-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(circle at 50% 50%, transparent 45%, rgba(3, 1, 6, 0.7) 85%, #030106 100%),
+              radial-gradient(circle at 50% 48%, rgba(255, 42, 122, 0.08) 0%, transparent 65%);
+}
+
+/* Elegant Romantic Text */
+.text-container {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 5;
+  pointer-events: auto;
+  width: 90%;
+  max-width: 600px;
+}
+
+.romantic-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+               0 0 25px var(--primary-pink),
+               0 0 50px var(--glow-shadow),
+               0 0 80px var(--primary-pink);
+  margin-bottom: 2px;
+  line-height: 1.1;
+  outline: none;
+  cursor: text;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.romantic-text:hover {
+  filter: brightness(1.2);
+}
+
+.sub-text {
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 0 12px rgba(255, 42, 122, 0.5);
+  outline: none;
+  cursor: text;
+  transition: all 0.3s ease;
+}
+
+.sub-text:hover {
+  color: #fff;
+}
+
+/* Minimalist floating controls at top right */
+.minimal-controls {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.tool-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tool-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 42, 122, 0.3);
+}
+
+.color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2a7a, #ff75a0);
+  box-shadow: 0 0 8px #ff2a7a;
+}
+
+/* Gentle hint at bottom */
+.interaction-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  z-index: 5;
+  pointer-events: none;
+  animation: pulse-hint 3s infinite ease-in-out;
+}
+
+@keyframes pulse-hint {
+  0%, 100% { opacity: 0.25; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.65; transform: translateX(-50%) translateY(-2px); }
+}
+
+@media (max-width: 600px) {
+  .minimal-controls {
+    top: 16px;
+    right: 16px;
+    gap: 8px;
+  }
+  .tool-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+  .text-container {
+    bottom: 10%;
+  }
+}
